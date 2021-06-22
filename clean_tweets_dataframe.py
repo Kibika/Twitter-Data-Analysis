@@ -1,3 +1,6 @@
+import nltk
+import numpy as np
+import pandas as pd
 class Clean_Tweets:
     """
     The PEP8 Standard AMAZING!!!
@@ -52,7 +55,10 @@ class Clean_Tweets:
         """
         remove non english tweets from lang
         """
-        
-        df = ----
+        def is_english():
+            nltk.download('words')
+            words = set(nltk.corpus.words.words())
+            sentence=" ".join(w for w in nltk.wordpunct_tokenize(sent) if w.lower() in words or not w.isalpha())
+        df = df["text"].apply(is_english())
         
         return df
