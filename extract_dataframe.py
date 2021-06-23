@@ -25,7 +25,7 @@ def read_json(json_file: str) -> list:
 class TweetDfExtractor:
     """
     this function will parse tweets json into a pandas dataframe
-    
+
     Return
     ------
     dataframe
@@ -37,6 +37,7 @@ class TweetDfExtractor:
 
     # an example function
     def find_statuses_count(self) -> list:
+
         statuses_count
 
     def find_full_text(self) -> list:
