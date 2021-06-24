@@ -116,12 +116,13 @@ class TweetDfExtractor:
 
     def find_retweet_count(self) -> list:
         retweet_count = []
-        for x in range(len(self.tweets_list)):
-            text = self.tweets_list[x]['retweet_count']
-            try:
-                retweet_count.append(text)
-            except:
-                retweet_count.append('None')
+        for i in range(len(self.tweets_list)):
+            if "retweeted_status" not in self.tweets_list[i] or "retweet_count" not in self.tweets_list[i][
+                'retweeted_status']:
+                retweet_count.append("")
+            else:
+                retweet_count.append(self.tweets_list[i]['retweeted_status']['retweet_count'])
+
         return retweet_count
 
     def find_hashtags(self) -> list:
