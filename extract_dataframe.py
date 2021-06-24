@@ -112,11 +112,10 @@ class TweetDfExtractor:
     def find_retweet_count(self) -> list:
         retweet_count = []
         for i in range(len(self.tweets_list)):
-            if "retweeted_status" not in self.tweets_list[i] or "retweet_count" not in self.tweets_list[i][
-                'retweeted_status']:
-                retweet_count.append("")
-            else:
+            try:
                 retweet_count.append(self.tweets_list[i]['retweeted_status']['retweet_count'])
+            except:
+                retweet_count.append("")
 
         return retweet_count
 
