@@ -100,15 +100,14 @@ class TweetDfExtractor:
         return isSensitive
 
     def find_favourite_count(self) -> list:
-        favourite_count = []
+        favorite_count = []
         for i in range(len(self.tweets_list)):
-            if "retweeted_status" not in self.tweets_list[i] or "favorite_count" not in self.tweets_list[i][
-                'retweeted_status']:
-                favourite_count.append("")
-            else:
-                favourite_count.append(self.tweets_list[i]['retweeted_status']['favorite_count'])
+            try:
+                favorite_count.append(self.tweets_list[i]['retweeted_status']['favorite_count'])
+            except:
+                favorite_count.append("")
 
-        return favourite_count
+        return favorite_count
 
     def find_retweet_count(self) -> list:
         retweet_count = []
