@@ -45,11 +45,10 @@ class TweetDfExtractor:
     def find_full_text(self) -> list:
         text = []
         for i in range(len(self.tweets_list)):
-            if "retweeted_status" not in self.tweets_list[i] or "extended_tweet" not in self.tweets_list[i][
-                'retweeted_status']:
-                text.append("")
-            else:
+            try:
                 text.append(self.tweets_list[i]['retweeted_status']['extended_tweet']['full_text'])
+            except:
+                text.append("")
 
         return text
 
