@@ -184,7 +184,7 @@ class TweetDfExtractor:
         df = pd.DataFrame(data=data, columns=columns)
 
         if save:
-            df.to_csv('processed_tweet_data.csv', index=False)
+            df.to_csv('./data/processed_tweet_data.csv', index=False)
             print('File Successfully Saved.!!!')
 
         return df
@@ -199,5 +199,4 @@ if __name__ == "__main__":
     _, tweet_list = read_json("../covid19.json")
     tweet = TweetDfExtractor(tweet_list)
     tweet_df = tweet.get_tweet_df()
-    #tweet_df.to_csv("./data/covid19.csv")
     # use all defined functions to generate a dataframe with the specified columns above
