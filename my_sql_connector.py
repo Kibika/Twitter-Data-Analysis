@@ -2,6 +2,8 @@ import os
 import pandas as pd
 import mysql.connector
 from mysql.connector import Error
+from encrypt import code
+
 
 def DBConnect(dbName=None):
     """
@@ -15,7 +17,7 @@ def DBConnect(dbName=None):
     -------
 
     """
-    conn = mysql.connector.connect(host='localhost', user='root', password='',
+    conn = mysql.connector.connect(host='localhost', user='root', password=str(code),
                          database=dbName, buffered=True)
     cur = conn.cursor()
     return conn, cur
@@ -209,7 +211,7 @@ def db_execute_fetch(*args, many=False, tablename='', rdf=True, **kwargs) -> pd.
 if __name__ == "__main__":
     createDB(dbName='tweets')
     emojiDB(dbName='tweets')
-    execute_query(mysql.connector.connect(host="localhost", user='root',password="", database="tweets"), create_tweets_table)
+    execute_query(mysql.connector.connect(host="localhost", user='root',password=str(code), database="tweets"), create_tweets_table)
 
     df = pd.read_csv('./data/covid19.csv')
 
