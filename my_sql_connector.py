@@ -209,7 +209,7 @@ def db_execute_fetch(*args, many=False, tablename='', rdf=True, **kwargs) -> pd.
 if __name__ == "__main__":
     createDB(dbName='tweets')
     emojiDB(dbName='tweets')
-    execute_query(mysql.connector.connect(host="localhost", user='root',password="12345678", database="tweets"), create_tweets_table)
+    execute_query(mysql.connector.connect(host="localhost", user='root',password="", database="tweets"), create_tweets_table)
 
     df = pd.read_csv('./data/covid19.csv')
 
