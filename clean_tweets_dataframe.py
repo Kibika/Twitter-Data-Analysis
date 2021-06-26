@@ -1,7 +1,7 @@
 import nltk
 import numpy as np
 import pandas as pd
-from extract_dataframe import tweet_df
+#from extract_dataframe import tweet_df
 
 
 class Clean_Tweets:
@@ -66,5 +66,5 @@ class Clean_Tweets:
         df.reset_index()
         return df
 
-    cleaned_df = Clean_Tweets(tweet_df)
-    #cleaned_df.to_csv("./data/cleaned_covid19.csv")
+#cleaned_df = Clean_Tweets(tweet_df)
+#cleaned_df.to_csv("./data/cleaned_covid19.csv")
